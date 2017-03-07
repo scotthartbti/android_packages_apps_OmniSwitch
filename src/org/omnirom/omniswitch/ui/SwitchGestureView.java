@@ -107,7 +107,7 @@ public class SwitchGestureView {
             mRecentsManager.hideHidden();
             mLongPress = true;
             mHandleRecentsUpdate = true;
-            RecentTasksLoader.getInstance(mContext).loadTasksInBackground(0, true);
+            RecentTasksLoader.getInstance(mContext).loadTasksInBackground();
         }};
     private PackageTextView[] mCurrentItemEnv= new PackageTextView[3];
 

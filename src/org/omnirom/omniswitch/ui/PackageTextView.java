@@ -138,8 +138,7 @@ public class PackageTextView extends TextView implements TaskDescription.ThumbCh
                         configuration.mBgStyle != SwitchConfiguration.BgStyle.TRANSPARENT,
                         configuration.mShowLabels,
                         mCanSideHeader ? configuration.mSideHeader : false,
-                        configuration.getOverlayHeaderWidth(),
-                        getTask().isDocked());
+                        configuration.getOverlayHeaderWidth());
                 if (cache) {
                     BitmapCache.getInstance(mContext).putSharedThumbnail(mContext.getResources(), getTask(), d);
                     mThumbLoaded = true;

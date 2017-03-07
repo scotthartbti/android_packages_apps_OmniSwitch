@@ -202,16 +202,14 @@ public class Utils {
         return false;
     }
 
-    public static boolean isMultiStackEnabled() {
+    public static boolean isMultiStackEnabled(Context context) {
         return ActivityManager.supportsMultiWindow();
     }
 
     public static boolean isDockingActive() {
-        if (isMultiStackEnabled()) {
-            try {
-                return WindowManagerGlobal.getWindowManagerService().getDockedStackSide() != WindowManager.DOCKED_INVALID;
-            } catch (RemoteException e) {
-            }
+        try {
+            return WindowManagerGlobal.getWindowManagerService().getDockedStackSide() != WindowManager.DOCKED_INVALID;
+        } catch (RemoteException e) {
         }
         return false;
     }

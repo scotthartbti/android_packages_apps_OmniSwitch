@@ -44,7 +44,6 @@ public final class TaskDescription {
     private boolean mThumbLoading;
     private boolean mThumbPreloaded;
     private Bitmap mThumb;
-    private boolean mDocked;
 
     public static interface ThumbChangeListener {
         public void thumbChanged(int pesistentTaskId, Bitmap thumb);
@@ -53,7 +52,7 @@ public final class TaskDescription {
 
     public TaskDescription(int _taskId, int _persistentTaskId,
             ResolveInfo _resolveInfo, Intent _intent, String _packageName,
-            CharSequence _description, int _stackId) {
+            CharSequence _description, boolean activeTask, int _stackId) {
         resolveInfo = _resolveInfo;
         intent = _intent;
         taskId = _taskId;
@@ -63,6 +62,7 @@ public final class TaskDescription {
         description = _description;
         packageName = _packageName;
         mActivityInfo = resolveInfo.activityInfo;
+        mIsActive = activeTask;
     }
 
     public TaskDescription() {
@@ -74,6 +74,10 @@ public final class TaskDescription {
 
         description = null;
         packageName = null;
+    }
+
+    public boolean isActive() {
+        return mIsActive;
     }
 
     public boolean isNull() {
@@ -170,13 +174,5 @@ public final class TaskDescription {
 
     public boolean isThumbPreloaded() {
         return mThumbPreloaded;
-    }
-
-    public void setDocked() {
-        mDocked = true;
-    }
-
-    public boolean isDocked() {
-        return mDocked;
     }
 }
